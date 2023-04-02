@@ -4,6 +4,7 @@ html {
 
 body {
 	position: relative;
+	font-family: "Open Sans", sans-serif;
 }
 
 * {
@@ -15,6 +16,10 @@ body {
 	--medium-gray: #9e9e9e;
 	--dark-gray: #535151;
 	--black: #000000;
+}
+
+h2 {
+	font-family: "Montserrat", sans-serif;
 }
 
 span {
@@ -39,6 +44,61 @@ header {
 
 header > img {
 	height: 55px;
+}
+
+button {
+	font-family: "Open Sans", sans-serif;
+	cursor: pointer;
+}
+
+button:hover {
+	filter: brightness(0.9);
+}
+
+button.extensible-button {
+	width: 106px;
+	height: fit-content;
+	min-height: 32px;
+	line-break: auto;
+	padding: 2px;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+button.extensible-button.default {
+	border-radius: 5px;
+	border: 1px solid var(--blue);
+	background-color: var(--blue);
+	color: var(--white);
+}
+
+button.extensible-button.default-inverted {
+	border-radius: 5px;
+	border: 1px solid var(--blue);
+	background-color: var(--white);
+	color: var(--blue);
+}
+
+button.extensible-button.rounded {
+	border-radius: 50px;
+}
+
+button.extensible-button.small {
+	width: 103px;
+	min-height: 23px;
+	font-size: 10px;
+}
+
+button.extensible-button.normal {
+	width: 106px;
+	min-height: 32px;
+	font-size: 14px;
+}
+
+button.extensible-button.large {
+	width: 178px;
+	min-height: 32px;
+	font-size: 14px;
 }
 
 @media (min-width: 1200px) {
