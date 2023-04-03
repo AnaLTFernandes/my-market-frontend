@@ -44,8 +44,13 @@ function listProducts() {
 	return getRequest("/products");
 }
 
+function listCategories() {
+	return getRequest("/categories");
+}
+
 const api = {
 	listProducts,
+	listCategories,
 };
 
 export { api };

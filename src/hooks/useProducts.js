@@ -1,6 +1,11 @@
 import { useReducer } from "react";
 
 function reducer(products, action) {
+	function getArrayBase() {
+		if (products.filtered.length > 0) return "filtered";
+		return "original";
+	}
+
 	if (action.type === "set") {
 		products.original = [...action.data];
 		products.render = [...action.data];
@@ -10,10 +15,26 @@ function reducer(products, action) {
 
 	if (action.type === "filterByName") {
 		const searchName = action.name.toLowerCase();
-		products.filteredByName = products.original.filter(({ name }) =>
+		products.filteredByName = products[getArrayBase()].filter(({ name }) =>
 			name.toLowerCase().includes(searchName)
 		);
-		products.render = [...products.filteredByName];
+		products.filtered = [...products.filteredByName];
+		products.render = [...products.filtered];
+
+		return { ...products };
+	}
+
+	if (action.type === "filterByCategory") {
+		if (Number(action.id) === 0) {
+			products.render = [...products.original];
+			return { ...products };
+		}
+
+		products.filteredByCategory = products[getArrayBase()].filter(
+			({ categoryId }) => categoryId === action.id
+		);
+		products.filtered = [...products.filteredByCategory];
+		products.render = [...products.filtered];
 
 		return { ...products };
 	}
@@ -24,7 +45,7 @@ function reducer(products, action) {
 export function useProducts() {
 	const [products, dispatch] = useReducer(reducer, {
 		original: [],
-		filteredByName: [],
+		filtered: [],
 		render: [],
 	});
 
@@ -36,5 +57,14 @@ export function useProducts() {
 		return dispatch({ type: "filterByName", name });
 	}
 
-	return { products, setProducts, filterProductsByName };
+	function filterProductsByCategory(id) {
+		return dispatch({ type: "filterByCategory", id });
+	}
+
+	return {
+		products,
+		setProducts,
+		filterProductsByName,
+		filterProductsByCategory,
+	};
 }
