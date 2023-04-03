@@ -7,9 +7,7 @@ export function Products({ products, setProducts }) {
 	useEffect(() => {
 		api
 			.listProducts()
-			.then((response) =>
-				setProducts({ filtered: [...response], original: [...response] })
-			)
+			.then((response) => setProducts([...response]))
 			.catch(() =>
 				toast(
 					"Não foi possível carregar os produtos. Por favor, recarregue a página."
@@ -22,7 +20,7 @@ export function Products({ products, setProducts }) {
 			<h3>Produtos</h3>
 
 			<div>
-				{products.filtered.map((product, index) => (
+				{products.render.map((product, index) => (
 					<Product key={index} {...product} />
 				))}
 			</div>
