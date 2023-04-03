@@ -138,10 +138,23 @@ div#product span.product-promotion.product-price {
 	color: var(--green);
 }
 
-button {
+button,
+input,
+select {
 	font-family: "Open Sans", sans-serif;
 	cursor: pointer;
 	letter-spacing: 0.5px;
+	outline: none;
+}
+
+select {
+	cursor: default;
+}
+
+input {
+	cursor: text;
+	letter-spacing: 0.3px;
+	padding: 0 14px;
 }
 
 button:hover {
@@ -192,6 +205,83 @@ button.extensible-button.large {
 	width: 178px;
 	min-height: 32px;
 	font-size: 14px;
+}
+
+section.search-section {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+section.search-section > input,
+section.search-section > button {
+	margin: 5px 10px;
+}
+
+section.search-section > input {
+	width: 100%;
+	max-width: 500px;
+	height: 32px;
+	border: 1px solid var(--medium-gray);
+	border-radius: 50px;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: var(--white);
+	color: var(--dark-gray);
+}
+
+section.search-section > input::placeholder {
+	color: var(--medium-gray);
+}
+
+fieldset.extensible-fieldset {
+	border: 1px solid var(--blue);
+	border-radius: 3px;
+	padding: 10px;
+	margin: 14px 0;
+	font-size: 14px;
+}
+
+fieldset.extensible-fieldset > div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+fieldset.extensible-fieldset > legend {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+fieldset.extensible-fieldset > div > div {
+	height: fit-content;
+	margin: 5px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+fieldset.extensible-fieldset select {
+	margin: 0 5px;
+	border: none;
+	border-bottom: 1px solid var(--blue);
+	background-color: transparent;
+	font-size: 14px;
+}
+
+fieldset.extensible-fieldset input[type="checkbox"],
+fieldset.extensible-fieldset input[type="radio"] {
+	margin: 0 5px;
+	cursor: default;
+}
+
+@media (max-width: 430px) {
+	section.search-section {
+		flex-wrap: wrap;
+	}
 }
 
 @media (min-width: 1200px) {

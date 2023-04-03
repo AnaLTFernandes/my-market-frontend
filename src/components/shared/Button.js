@@ -3,10 +3,15 @@ export function Button({
 	size = "normal",
 	style = "default",
 	rounded = false,
+	...otherProps
 }) {
 	const classname = `extensible-button ${size} ${style} ${
 		rounded ? "rounded" : ""
 	}`.trim();
 
-	return <button className={classname}>{text}</button>;
+	return (
+		<button {...otherProps} className={classname}>
+			{text}
+		</button>
+	);
 }
