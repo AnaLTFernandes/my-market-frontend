@@ -5,6 +5,8 @@ html {
 body {
 	position: relative;
 	font-family: "Open Sans", sans-serif;
+	letter-spacing: 0.5px;
+	background-color: var(--white);
 }
 
 * {
@@ -18,11 +20,14 @@ body {
 	--black: #000000;
 }
 
-h2 {
+h3 {
 	font-family: "Montserrat", sans-serif;
+	color: var(--blue);
+	font-size: 18px;
+	margin-bottom: 12px;
 }
 
-span {
+a {
 	cursor: point;
 	text-decoration: none;
 }
@@ -46,9 +51,97 @@ header > img {
 	height: 55px;
 }
 
+main {
+	width: 80%;
+	max-width: 900px;
+	height: 100%;
+	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+section {
+	margin: 70px 0 75px;
+}
+
+section.products-section {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+section.products-section > div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2px;
+}
+
+div#product {
+	width: 130px;
+	height: 180px;
+	border-radius: 5px;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 7px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: var(--light-gray);
+}
+
+div#product:hover {
+	filter: brightness(0.9);
+}
+
+div#product img {
+	width: 100%;
+	height: 60px;
+	object-fit: cover;
+	border-radius: 3px;
+}
+
+div#product > div > span {
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	display: inherit;
+	word-break: break-word;
+	line-height: 16px;
+}
+
+div#product button {
+	width: 100% !important;
+}
+
+div#product span.product-name {
+	margin: 5px 0;
+	color: var(--black);
+}
+
+div#product span.product-promotion {
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--green);
+}
+
+div#product span.product-price {
+	font-size: 14px;
+	margin: 5px 0;
+	font-weight: 600;
+	text-align: end;
+	color: var(--black);
+}
+
+div#product span.product-promotion.product-price {
+	color: var(--green);
+}
+
 button {
 	font-family: "Open Sans", sans-serif;
 	cursor: pointer;
+	letter-spacing: 0.5px;
 }
 
 button:hover {
