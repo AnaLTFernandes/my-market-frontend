@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import { Product } from "./Product";
 import { api } from "../../service/api";
+import { Product } from "./Product";
 
 export function Products({ products, setProducts }) {
 	useEffect(() => {
@@ -20,9 +20,12 @@ export function Products({ products, setProducts }) {
 			<h3>Produtos</h3>
 
 			<div>
-				{products.render.map((product, index) => (
-					<Product key={index} {...product} />
-				))}
+				{products.render.length === 0 && <span>Não há produtos!</span>}
+
+				{products.render.length > 0 &&
+					products.render.map((product, index) => (
+						<Product key={index} {...product} />
+					))}
 			</div>
 		</section>
 	);
