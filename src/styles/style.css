@@ -412,6 +412,7 @@ section.product-details-section {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	flex-direction: row;
 	color: var(--dark-gray);
 	font-size: 1rem;
 }
@@ -423,6 +424,7 @@ section.product-details-section img {
 	border-radius: 5px;
 	margin: 1rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--black);
 }
 
 section.product-details-section h4 {
@@ -488,6 +490,19 @@ section.product-details-section span.product-details-price.promotion-price {
 
 	div.cart-product div {
 		height: 45px;
+	}
+}
+
+@media (max-width: 580px) {
+	section.product-details-section {
+		flex-direction: column-reverse;
+	}
+
+	section.product-details-section img {
+		width: 95%;
+		margin: 0 auto 2rem;
+		height: 200px;
+		object-fit: contain;
 	}
 }
 
