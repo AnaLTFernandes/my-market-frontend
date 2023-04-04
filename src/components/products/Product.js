@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../shared/Button";
 
 export function Product({ _id, name, image, price, isPromotion, cart }) {
 	const [isInCart, setIsInCart] = useState(false);
+	const navigate = useNavigate();
 
 	function formatPrice() {
 		return `R$ ${(price / 100).toFixed(2)}`;
@@ -19,7 +21,7 @@ export function Product({ _id, name, image, price, isPromotion, cart }) {
 	}
 
 	return (
-		<div id="product">
+		<div id="product" onClick={() => navigate(`/product/${_id}`)}>
 			<div>
 				<img alt={name} src={image} />
 				<span className="product-name">{name}</span>
