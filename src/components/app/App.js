@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../../hooks/useCart";
 import { Header } from "../header/Header";
 import { MainPage } from "../../pages/MainPage";
+import { ProductPage } from "../../pages/ProductPage";
 
 import "../../styles/reset.css";
 import "../../styles/style.css";
@@ -26,6 +27,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<MainPage cart={currentCart} />} />
+				<Route path="/product/:id" element={<ProductPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

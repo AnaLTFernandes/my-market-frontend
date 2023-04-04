@@ -48,9 +48,14 @@ function listCategories() {
 	return getRequest("/categories");
 }
 
+function getProductDetails(id) {
+	return getRequest(`/products/${id}`);
+}
+
 const api = {
 	listProducts,
 	listCategories,
+	getProductDetails
 };
 
 export { api };
