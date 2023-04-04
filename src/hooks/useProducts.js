@@ -15,7 +15,7 @@ function reducer(products, action) {
 
 	if (action.type === "filterByName") {
 		const searchName = action.name.toLowerCase();
-		products.filteredByName = products[getArrayBase()].filter(({ name }) =>
+		products.filteredByName = products.original.filter(({ name }) =>
 			name.toLowerCase().includes(searchName)
 		);
 		products.filtered = [...products.filteredByName];
@@ -35,6 +35,30 @@ function reducer(products, action) {
 		);
 		products.filtered = [...products.filteredByCategory];
 		products.render = [...products.filtered];
+
+		return { ...products };
+	}
+
+	if (action.type === "orderByField") {
+		const field = action.field;
+
+		if (products.original[0][field] === undefined) return { ...products };
+
+		const arrayBase = getArrayBase();
+
+		if (action.order === "desc") {
+			products[arrayBase].sort((curr, next) =>
+				curr[field] > next[field] ? -1 : 1
+			);
+			products.render = [...products[arrayBase]];
+
+			return { ...products };
+		}
+
+		products[arrayBase].sort((curr, next) =>
+			curr[field] > next[field] ? 1 : -1
+		);
+		products.render = [...products[arrayBase]];
 
 		return { ...products };
 	}
@@ -61,10 +85,15 @@ export function useProducts() {
 		return dispatch({ type: "filterByCategory", id });
 	}
 
+	function orderProductsByField({ field = "_id", order = "asc" }) {
+		return dispatch({ type: "orderByField", field, order });
+	}
+
 	return {
 		products,
 		setProducts,
 		filterProductsByName,
 		filterProductsByCategory,
+		orderProductsByField,
 	};
 }

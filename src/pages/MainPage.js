@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { Search } from "../components/search/Search";
 import { Products } from "../components/products/Products";
 import { FilterProductsFieldset } from "../components/products/FilterProductsFieldset";
-import { Search } from "../components/search/Search";
+import { OrderProductsFieldset } from "../components/products/OrderProductsFieldset";
 import { useProducts } from "../hooks/useProducts";
 
 export function MainPage() {
@@ -10,6 +11,7 @@ export function MainPage() {
 		setProducts,
 		filterProductsByName,
 		filterProductsByCategory,
+		orderProductsByField,
 	} = useProducts();
 	const [currentProducts, setCurrentProducts] = useState(products);
 
@@ -24,6 +26,8 @@ export function MainPage() {
 			<FilterProductsFieldset
 				filterProductsByCategory={filterProductsByCategory}
 			/>
+
+			<OrderProductsFieldset orderProductsByField={orderProductsByField} />
 
 			<Products products={currentProducts} setProducts={setProducts} />
 		</main>
