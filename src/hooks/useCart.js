@@ -35,9 +35,14 @@ export function useCart() {
 		return dispatch({ type: "remove", id, price });
 	}
 
+	function searchProduct(id) {
+		return data.products.filter((product) => product._id === id)[0];
+	}
+
 	return {
 		data,
 		addProduct,
 		removeProduct,
+		searchProduct,
 	};
 }

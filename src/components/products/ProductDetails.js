@@ -5,9 +5,16 @@ import { api } from "../../service/api";
 import { Button } from "../shared/Button";
 
 export function ProductDetails({ cart }) {
-	const [details, setDetails] = useState({});
-	const [isInCart, setIsInCart] = useState(false);
 	const params = useParams();
+	const [details, setDetails] = useState({});
+	const [isInCart, setIsInCart] = useState(
+		cart.searchProduct(params.id) !== null
+	);
+
+	useEffect(() => {
+		const product = cart.searchProduct(params.id);
+		if (!!product !== isInCart) setIsInCart((prev) => !prev);
+	}, [cart.data]);
 
 	useEffect(() => {
 		api

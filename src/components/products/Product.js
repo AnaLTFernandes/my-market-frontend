@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../shared/Button";
 
 export function Product({ _id, name, image, price, isPromotion, cart }) {
-	const [isInCart, setIsInCart] = useState(false);
+	const [isInCart, setIsInCart] = useState(cart.searchProduct(_id) !== null);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const product = cart.searchProduct(_id);
+		if (!!product !== isInCart) setIsInCart((prev) => !prev);
+	}, [cart.data]);
 
 	function formatPrice() {
 		return `R$ ${(price / 100).toFixed(2)}`;
