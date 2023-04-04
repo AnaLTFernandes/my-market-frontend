@@ -71,7 +71,7 @@ main {
 }
 
 a.return-main-link {
-	margin: 70px 0;
+	margin: 70px 0 30px;
 	display: inherit;
 	font-size: 1.1rem;
 	color: var(--blue);
@@ -237,6 +237,7 @@ section.search-section {
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
+	margin: 70px 0 30px;
 }
 
 section.search-section > input,
@@ -413,6 +414,7 @@ section.product-details-section {
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-direction: row;
+	margin-top: 30px;
 	color: var(--dark-gray);
 	font-size: 1rem;
 }
