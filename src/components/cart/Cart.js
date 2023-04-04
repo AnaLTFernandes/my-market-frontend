@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { ProductInCart } from "./ProductInCart";
+import { formatPrice } from "../helpers/formatPrice";
 
 export function Cart({ cart: { data: cart, removeProduct } }) {
 	const [isOpen, setIsOpen] = useState(false);
-
-	function formatPrice(price) {
-		return `R$ ${(price / 100).toFixed(2)}`;
-	}
 
 	function toggleIsOpen() {
 		setIsOpen((prev) => !prev);

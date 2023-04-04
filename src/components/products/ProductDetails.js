@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../service/api";
 import { Button } from "../shared/Button";
+import { formatPrice } from "../helpers/formatPrice";
 
 export function ProductDetails({ cart }) {
 	const params = useParams();
@@ -26,10 +27,6 @@ export function ProductDetails({ cart }) {
 				)
 			);
 	}, [params.id]);
-
-	function formatPrice(price) {
-		return `R$ ${(price / 100).toFixed(2)}`;
-	}
 
 	function getPrice() {
 		return details.isPromotion ? details.promotionPrice : details.originalPrice;
