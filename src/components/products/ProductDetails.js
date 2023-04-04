@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../service/api";
-import { Button } from "../shared/Button";
 import { formatPrice } from "../helpers/formatPrice";
+import { Button, Loading } from "../shared";
 
 export function ProductDetails({ cart }) {
 	const params = useParams();
+	const [isLoading, setIsLoading] = useState(true);
 	const [details, setDetails] = useState({});
 	const [isInCart, setIsInCart] = useState(
 		cart.searchProduct(params.id) !== null
@@ -20,12 +21,16 @@ export function ProductDetails({ cart }) {
 	useEffect(() => {
 		api
 			.getProductDetails(params.id)
-			.then((response) => setDetails({ ...response }))
-			.catch((error) =>
+			.then((response) => {
+				setDetails({ ...response });
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				setIsLoading(false);
 				toast(
 					error.message || "Não foi possível carregar os detalhes do produto."
-				)
-			);
+				);
+			});
 	}, [params.id]);
 
 	function getPrice() {
@@ -46,54 +51,60 @@ export function ProductDetails({ cart }) {
 
 	return (
 		<section className="product-details-section">
-			<div>
-				<h4>{details.name}</h4>
+			{isLoading && <Loading />}
 
-				<span>
-					Categoria: <b>{details.categoryName}</b>
-				</span>
+			{!isLoading && (
+				<>
+					<div>
+						<h4>{details.name}</h4>
 
-				<p>
-					<b>Descrição: </b>
-					{details.description}
-				</p>
-
-				{!details.isPromotion && (
-					<span className="product-details-price">
-						{formatPrice(details.originalPrice)}
-					</span>
-				)}
-
-				{details.isPromotion && (
-					<>
-						<span className="product-details-price original-price">
-							De: {formatPrice(details.originalPrice)}
+						<span>
+							Categoria: <b>{details.categoryName}</b>
 						</span>
-						<span className="product-details-price promotion-price">
-							Para: {formatPrice(details.promotionPrice)}
-						</span>
-					</>
-				)}
 
-				{!isInCart && (
-					<Button
-						size="large"
-						text="Adicionar ao carrinho"
-						onClick={addToCart}
-					/>
-				)}
+						<p>
+							<b>Descrição: </b>
+							{details.description}
+						</p>
 
-				{isInCart && (
-					<Button
-						size="large"
-						style="default-inverted"
-						text="Remover do carrinho"
-						onClick={removeFromCart}
-					/>
-				)}
-			</div>
+						{!details.isPromotion && (
+							<span className="product-details-price">
+								{formatPrice(details.originalPrice)}
+							</span>
+						)}
 
-			<img alt={details.name} src={details.image} />
+						{details.isPromotion && (
+							<>
+								<span className="product-details-price original-price">
+									De: {formatPrice(details.originalPrice)}
+								</span>
+								<span className="product-details-price promotion-price">
+									Para: {formatPrice(details.promotionPrice)}
+								</span>
+							</>
+						)}
+
+						{!isInCart && (
+							<Button
+								size="large"
+								text="Adicionar ao carrinho"
+								onClick={addToCart}
+							/>
+						)}
+
+						{isInCart && (
+							<Button
+								size="large"
+								style="default-inverted"
+								text="Remover do carrinho"
+								onClick={removeFromCart}
+							/>
+						)}
+					</div>
+
+					<img alt={details.name} src={details.image} />
+				</>
+			)}
 		</section>
 	);
 }

@@ -426,7 +426,7 @@ section.product-details-section img {
 	border-radius: 5px;
 	margin: 1rem;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-    background-color: var(--black);
+	background-color: var(--black);
 }
 
 section.product-details-section h4 {
@@ -459,6 +459,22 @@ section.product-details-section span.product-details-price.original-price {
 
 section.product-details-section span.product-details-price.promotion-price {
 	color: var(--green);
+}
+
+div#loading {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+div#loading img {
+	width: 40px;
+	height: 40px;
+	border: 0;
+	margin: 0 auto;
+	border-radius: 50px;
+	box-shadow: none;
+	background-color: transparent;
 }
 
 @media (max-width: 380px) {
