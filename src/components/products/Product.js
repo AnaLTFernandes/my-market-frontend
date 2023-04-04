@@ -15,12 +15,14 @@ export function Product({ _id, name, image, price, isPromotion, cart }) {
 		return `R$ ${(price / 100).toFixed(2)}`;
 	}
 
-	function addToCart() {
+	function addToCart(event) {
+		event.stopPropagation();
 		cart.addProduct({ _id, name, image, price });
 		setIsInCart(true);
 	}
 
-	function removeFromCart() {
+	function removeFromCart(event) {
+		event.stopPropagation();
 		cart.removeProduct(_id, price);
 		setIsInCart(false);
 	}
