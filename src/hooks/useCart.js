@@ -9,7 +9,10 @@ function reducer(cart, action) {
 	}
 
 	if (action.type === "remove") {
-		cart.products.filter((product) => product._id !== action.id);
+		const products = cart.products.filter(
+			(product) => product._id !== action.id
+		);
+		cart.products = [...products];
 		cart.totalPrice -= action.price;
 
 		return { ...cart };

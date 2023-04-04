@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "../shared/Button";
 
 export function Product({ _id, name, image, price, isPromotion, cart }) {
