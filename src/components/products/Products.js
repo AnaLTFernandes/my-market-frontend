@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { api } from "../../service/api";
 import { Product } from "./Product";
 
-export function Products({ products, setProducts }) {
+export function Products({ products, setProducts, cart }) {
 	useEffect(() => {
 		api
 			.listProducts()
@@ -24,7 +24,7 @@ export function Products({ products, setProducts }) {
 
 				{products.render.length > 0 &&
 					products.render.map((product, index) => (
-						<Product key={index} {...product} />
+						<Product key={index} {...product} cart={cart} />
 					))}
 			</div>
 		</section>
