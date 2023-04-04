@@ -8,6 +8,13 @@ function reducer(cart, action) {
 		return { ...cart };
 	}
 
+	if (action.type === "remove") {
+		cart.products.filter((product) => product._id !== action.id);
+		cart.totalPrice -= action.price;
+
+		return { ...cart };
+	}
+
 	return { ...cart };
 }
 
@@ -21,8 +28,13 @@ export function useCart() {
 		return dispatch({ type: "add", data });
 	}
 
+	function removeProduct(id, price) {
+		return dispatch({ type: "remove", id, price });
+	}
+
 	return {
 		data,
 		addProduct,
+		removeProduct,
 	};
 }

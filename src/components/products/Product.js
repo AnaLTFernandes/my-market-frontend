@@ -13,6 +13,11 @@ export function Product({ _id, name, image, price, isPromotion, cart }) {
 		setIsInCart(true);
 	}
 
+	function removeFromCart() {
+		cart.removeProduct(_id, price);
+		setIsInCart(false);
+	}
+
 	return (
 		<div id="product">
 			<div>
@@ -35,6 +40,15 @@ export function Product({ _id, name, image, price, isPromotion, cart }) {
 						size="small"
 						text="Adicionar ao carrinho"
 						onClick={addToCart}
+					/>
+				)}
+
+				{isInCart && (
+					<Button
+						size="small"
+						style="default-inverted"
+						text="Remover do carrinho"
+						onClick={removeFromCart}
 					/>
 				)}
 			</div>
