@@ -278,6 +278,48 @@ fieldset.extensible-fieldset input[type="radio"] {
 	cursor: default;
 }
 
+div#cart {
+	width: calc(80% - 2rem);
+	max-width: calc(900px - 2rem);
+	height: 65px;
+	padding: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	background-color: var(--light-gray);
+	border-radius: 10px 10px 0 0;
+	border: 1px solid var(--medium-gray);
+	border-bottom: none;
+	box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+div#cart > div {
+	width: calc(100% - 2rem);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+div#cart div.cart-total {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--black);
+}
+
+div#cart span.cart-total-price {
+	color: var(--blue);
+}
+
+@media (max-width: 380px) {
+	div#cart {
+		width: 100%;
+		margin: 0;
+		left: 0;
+	}
+}
+
 @media (max-width: 430px) {
 	section.search-section {
 		flex-wrap: wrap;
