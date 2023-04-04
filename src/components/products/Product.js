@@ -39,7 +39,9 @@ export function Product({ _id, name, image, price, isPromotion, cart }) {
 					</span>
 				)}
 
-				{!isPromotion && <span className="product-price">{formatPrice(price)}</span>}
+				{!isPromotion && (
+					<span className="product-price">{formatPrice(price)}</span>
+				)}
 
 				{!isInCart && (
 					<Button
