@@ -70,6 +70,14 @@ main {
 	overflow-y: scroll;
 }
 
+a.return-main-link {
+	margin: 70px 0;
+	display: inherit;
+	font-size: 1.1rem;
+	color: var(--blue);
+	text-decoration: underline;
+}
+
 section {
 	margin: 70px 0 75px;
 }
