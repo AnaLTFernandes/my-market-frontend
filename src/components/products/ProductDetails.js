@@ -4,8 +4,9 @@ import { toast } from "react-toastify";
 import { api } from "../../service/api";
 import { Button } from "../shared/Button";
 
-export function ProductDetails() {
+export function ProductDetails({ cart }) {
 	const [details, setDetails] = useState({});
+	const [isInCart, setIsInCart] = useState(false);
 	const params = useParams();
 
 	useEffect(() => {
@@ -21,6 +22,22 @@ export function ProductDetails() {
 
 	function formatPrice(price) {
 		return `R$ ${(price / 100).toFixed(2)}`;
+	}
+
+	function getPrice() {
+		return details.isPromotion ? details.promotionPrice : details.originalPrice;
+	}
+
+	function addToCart() {
+		const { _id, name, image } = details;
+
+		cart.addProduct({ _id, name, image, price: getPrice() });
+		setIsInCart(true);
+	}
+
+	function removeFromCart() {
+		cart.removeProduct(details._id, getPrice());
+		setIsInCart(false);
 	}
 
 	return (
@@ -54,7 +71,22 @@ export function ProductDetails() {
 					</>
 				)}
 
-				<Button size="large" text="Adicionar ao carrinho" />
+				{!isInCart && (
+					<Button
+						size="large"
+						text="Adicionar ao carrinho"
+						onClick={addToCart}
+					/>
+				)}
+
+				{isInCart && (
+					<Button
+						size="large"
+						style="default-inverted"
+						text="Remover do carrinho"
+						onClick={removeFromCart}
+					/>
+				)}
 			</div>
 
 			<img alt={details.name} src={details.image} />

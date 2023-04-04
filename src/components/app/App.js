@@ -27,7 +27,11 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<MainPage cart={currentCart} />} />
-				<Route path="/product/:id" element={<ProductPage />} />
+
+				<Route
+					path="/product/:id"
+					element={<ProductPage cart={currentCart} />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);

@@ -1,9 +1,9 @@
 import { ProductDetails } from "../components/products/ProductDetails";
 
-export function ProductPage() {
+export function ProductPage({ cart }) {
 	return (
 		<main>
-			<ProductDetails />
+			<ProductDetails cart={cart} />
 		</main>
 	);
 }
