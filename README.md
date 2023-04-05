@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# :shopping_cart: My Market
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  Site de supermercado que fornece acesso a uma visão geral de tudo o que é oferecido no mercado ao listar todos os produtos disponíveis. 
+<br />
+<br />
+  Os filtros e as opções de ordenação oferecidas tornam a busca por produtos específicos ainda mais fácil, uma vez que é possível pesquisar diretamente pela categoria ou o nome do produto desejado, bem como ordenar os itens pelo campo que mais lhe interessar. Ademais, a página de produto fornece informações detalhadas sobre um produto específico. Com essa opção, é possível obter informações como nome, categoria, descrição, preço e imagem do produto de interesse.
+<br />
+<br />
+  O My Market torna a experiência de compras ainda mais prática e eficiente, ajudando você a economizar tempo e dinheiro enquanto faz suas compras.
+<br />
+<br />
+Está em busca de inspiração para novas receitas ou deseja explorar novos produtos e marcas? [My Market pode te ajudar!](https://my-market-af.vercel.app/)
 
-## Available Scripts
+<div align=center>
 
-In the project directory, you can run:
+ <img alt="My Market Preview" src="https://github.com/AnaLTFernandes/my-market-frontend/blob/main/src/images/my-market-preview.gif" />
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :hammer: Funcionalidades
+- Layout responsivo
+- Listar produtos
+- Pesquisar produtos pelo *nome*
+- Filtrar produtos pela *categoria*
+- Ordenar produtos pelo *nome*, *menor preço*, *maior preço* e *categoria*
+- Adicionar/Remover itens do carrinho
+- Listar produtos no carrinho
+- Tela de detalhes do produto
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :hammer_and_wrench: Abrir e rodar o projeto
+1. Clone esse repositório:
+>```bash
+> git clone https://github.com/AnaLTFernandes/my-market-frontend.git
+>```
 
-### `npm run build`
+2. Na raiz do projeto, instale as dependências:
+>```bash
+> npm install
+>```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Instale e configure o [backend](https://github.com/AnaLTFernandes/my-market-backend)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Configure o arquivo `.env` usando como base o arquivo `.env.example`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Inicie o programa:
+>```bash
+> npm start
+>```
 
-### `npm run eject`
+6. Acesse http://localhost:3000 no seu navegador e aproveite!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
